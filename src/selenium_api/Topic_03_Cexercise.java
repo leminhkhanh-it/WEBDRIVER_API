@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -36,18 +37,27 @@ public class Topic_03_Cexercise {
 
 		// Check element Email / Age:Under 18 / Education
 		WebElement Email = driver.findElement(By.id("mail"));
+		
+		Assert.assertTrue(Email.isDisplayed());
+		
 		if (Email.isDisplayed()) {
 			System.out.println("Email element is displayed");
 			Email.sendKeys(randomText() + "@gmail.com");
 		}
 
 		WebElement Age_under18 = driver.findElement(By.id("under_18"));
+		
+		Assert.assertTrue(Age_under18.isDisplayed());
+		
 		if (Age_under18.isDisplayed()) {
 			System.out.println("Age:under_18 element is displayed");
 			Age_under18.click();
 		}
 
 		WebElement Education = driver.findElement(By.id("edu"));
+		
+		Assert.assertTrue(Education.isDisplayed());
+		
 		if (Education.isDisplayed()) {
 			System.out.println("Education element is displayed");
 			Education.sendKeys(randomText() + randomText());
@@ -99,15 +109,16 @@ public class Topic_03_Cexercise {
 		WebElement Age_under_18 = driver.findElement(By.id("under_18"));
 		//Age_under_18.click();
 		if(Age_under_18.isSelected()) {
-			System.out.println("Age_under_18 is Selected");
+			Assert.assertTrue(Age_under_18.isSelected());
 		}else {
 			Age_under_18.click();
 		}
 		
 		WebElement Development = driver.findElement(By.xpath("//*[@id='development']"));
 		Development.click();
+		
 		if(Development.isSelected()) {
-			System.out.println("Development is Selected");
+			
 		}else {
 			Development.click();
 		}
